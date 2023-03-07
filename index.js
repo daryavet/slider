@@ -64,6 +64,7 @@ let sliderImg = document.querySelector('.slider__img'),
     if (options.info){
         initInfo()
         
+        
     }
 
     function initImages(){
@@ -143,15 +144,15 @@ let sliderImg = document.querySelector('.slider__img'),
     }
     
     function delInfo(){
-        const removeNodeC = document.getElementById("text_city_div"),
-              removeNodeS = document.getElementById("text_sq_div"),
-              removeNodeT = document.getElementById("text_time_div"),
-              removeNodeCo = document.getElementById("text_cost_div");
+        const removeC = document.getElementById("text_city_div"),
+              removeS = document.getElementById("text_sq_div"),
+              removeT = document.getElementById("text_time_div"),
+              removeCo = document.getElementById("text_cost_div");
 
-        removeNodeC.removeChild(removeNodeC.querySelector(".text-city"));
-        removeNodeS.removeChild(removeNodeS.querySelector(".text-sq"));
-        removeNodeT.removeChild(removeNodeT.querySelector(".text-time"));
-        removeNodeCo.removeChild(removeNodeCo.querySelector(".text-cost"))
+        removeC.removeChild(removeC.querySelector(".text-city"));
+        removeS.removeChild(removeS.querySelector(".text-sq"));
+        removeT.removeChild(removeT.querySelector(".text-time"));
+        removeCo.removeChild(removeCo.querySelector(".text-cost"))
 
     } 
     function changeInfo(){
