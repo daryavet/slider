@@ -1,0 +1,16 @@
+@import url(variables.css);
+@import url(general.css);
+
+
+*{
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', 'Arial', 'Helvetica', sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+}
