@@ -2,20 +2,20 @@ let data = [
    {
     url: "content/img/image_slider_1.jpg",
     info:{
-        city: "<div id=\"text_city_div\"><p id=\"text_city\" class=\"project_info_item_text text-city\">Rostov-on-Don LCD admiral </p></div>",
-        sq: "<div id=\"text_sq_div\"><p  id=\"text_sq\" class=\"project_info_item_text text-sq\">81 m2</p></div>",
-        time: "<div id=\"text_time_div\"><p id=\"text_time\" class=\"project_info_item_text text-time\">3.5 months</p></div>",
-        cost:"<div id=\"text_cost_div\"><p id=\"text_cost\" class=\"project_info_item_text text-cost\">Upon request</p></div> "
+        city: "Rostov-on-Don LCD admiral",
+        sq: "81 m2",
+        time: "3.5 months",
+        cost:"Upon request"
     },
     textLink: "Rostov-on-Don, admiral"
       
    },{
     url: "content/img/image_slider_2.jpg",
     info:{
-        city: "<div id=\"text_city_div\"><p id=\"text_city\" class=\"project_info_item_text text-city\">Sochi Thieves </p></div>",
-        sq: "<div id=\"text_sq_div\"><p id=\"text_sq\" class=\"project_info_item_text text-sq\">105 m2</p></div>",
-        time: "<div id=\"text_time_div\"><p id=\"text_time\" class=\"project_info_item_text text-time\">4 months</p></div>",
-        cost:"<div id=\"text_cost_div\"><p id=\"text_cost\" class=\"project_info_item_text text-cost\">Upon request</p></div> "
+        city: "Sochi Thieves",
+        sq: "105 m2",
+        time: "4 months",
+        cost:"Upon request"
     },
     textLink: "Sochi Thieves"
 
@@ -23,10 +23,10 @@ let data = [
     url: "content/img/image_slider_3.jpg",
     
     info:{
-        city: "<div id=\"text_city_div\"><p id=\"text_city\" class=\"project_info_item_text text-city\">Rostov-on-Don Patriotic </p></div>",
-        sq: "<div id=\"text_sq_div\"><p id=\"text_sq\" class=\"project_info_item_text text-sq\">93 m2</p></div>",
-        time: "<div id=\"text_time_div\"><p id=\"text_time\" class=\"project_info_item_text text-time\">3 months</p></div>",
-        cost:"<div id=\"text_cost_div\"><p id=\"text_cost\" class=\"project_info_item_text text-cost\">Upon request</p></div> "
+        city: "Rostov-on-Don Patriotic ",
+        sq: "93 m2",
+        time: "3 months",
+        cost:"Upon request"
       },
     textLink: "Rostov-on-Don Patriotic"
 
@@ -62,8 +62,7 @@ let sliderImg = document.querySelector('.slider__img'),
         initLink();
     }
     if (options.info){
-        initInfo()
-        
+        initInfo(0)   
         
     }
 
@@ -117,48 +116,13 @@ let sliderImg = document.querySelector('.slider__img'),
         
     
          
-      function initInfo() {
+      function initInfo(num) {
        
-        // let cityNode = document.getElementById('city-js'),
-        // sqNode = document.getElementById('sq-js'),
-        // timeNode = document.getElementById('time-js'),
-        // costNode = document.getElementById('cost-js');
-      
-        data.forEach((item,i)=>{
-            let cityNode = document.getElementById('city-js'),
-            sqNode = document.getElementById('sq-js'),
-            timeNode = document.getElementById('time-js'),
-            costNode = document.getElementById('cost-js');
-
-                if( i === +sliderImg.querySelector(".active").dataset.index){
-                    cityNode.insertAdjacentHTML('beforeend', data[i].info.city)
-                    sqNode.insertAdjacentHTML('beforeend', data[i].info.sq)
-                    timeNode.insertAdjacentHTML('beforeend', data[i].info.time)
-                    costNode.insertAdjacentHTML('beforeend', data[i].info.cost)
-                    return;
-                    } 
-                    
-
-        })
-    
-    }
-    
-    function delInfo(){
-        const removeC = document.getElementById("text_city_div"),
-              removeS = document.getElementById("text_sq_div"),
-              removeT = document.getElementById("text_time_div"),
-              removeCo = document.getElementById("text_cost_div");
-
-        removeC.removeChild(removeC.querySelector(".text-city"));
-        removeS.removeChild(removeS.querySelector(".text-sq"));
-        removeT.removeChild(removeT.querySelector(".text-time"));
-        removeCo.removeChild(removeCo.querySelector(".text-cost"))
-
-    } 
-    function changeInfo(){
-      delInfo()
-      initInfo()
-    }
+        document.querySelector(".text_city").innerHTML = data[num].info.city,
+        document.querySelector(".text_sq").innerHTML = data[num].info.sq,
+        document.querySelector('.text_time').innerHTML =data[num].info.time,
+        document.querySelector('.text_cost').innerHTML = data[num].info.cost;
+      }
 
       function moveSlider(num) {
         sliderImg.querySelector(".active").classList.remove("active");
@@ -176,11 +140,9 @@ let sliderImg = document.querySelector('.slider__img'),
         }
        
         if (options.info) {
-           changeInfo()
+           initInfo(num)
         
           } 
-       
-        
 
       }
 
@@ -200,9 +162,3 @@ let sliderOptions = {
     document.addEventListener("DOMContentLoaded", function() {
         initSlider();
       });
-
-
-
-
-
-      
